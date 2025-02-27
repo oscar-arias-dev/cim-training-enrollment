@@ -52,7 +52,7 @@
                 </div>
             </div>
             <div class="mb-3">
-                <label for="date" class="form-label">Fecha de certificación (solo martes y jueves)</label>
+                <label for="date" class="form-label">Fecha de certificación <b>(solo martes y jueves)</b> en horario de <b>12:00 a 13:00 hrs</b></label>
                 <div class="equisde"></div>
                 <input type="hidden" id="selectedDate" name="date">
             </div>
@@ -157,6 +157,16 @@
                 day: dayNumber,
             };
             try {
+                Swal.fire({
+                    title: "Estamos registrándote",
+                    timerProgressBar: true,
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    showCloseButton: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    },
+                });
                 const response = await fetch("http://localhost/cim-training-backend/training-api.php", {
                     method: "POST",
                     headers: {
