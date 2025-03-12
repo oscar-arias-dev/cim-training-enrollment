@@ -39,10 +39,14 @@
                     <option value="TELEMATICS">TELEMATICS</option>
                 </select>
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 <label for="platform" class="form-label">Selecciona el cliente</label>
                 <select id="my-select" class="js-example-basic-single" name="state">
                 </select>
+            </div> -->
+            <div class="mb-3">
+                <label for="platform" class="form-label">Cliente</label>
+                <input type="text" class="form-control" id="customer" placeholder="Ingresa el cliente" required>
             </div>
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
@@ -74,7 +78,7 @@
             </div>
         </form>
     </div>
-    <script>
+    <!-- <script>
         $(document).ready(function() {
             $('.js-example-basic-single').select2();
         });
@@ -116,7 +120,7 @@
                 mySelect.disabled = true;
             }
         });
-    </script>
+    </script> -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var calendar = jsCalendar.new(".equisde");
@@ -192,7 +196,7 @@
         document.getElementById("registrationForm").addEventListener("submit", async function (event) {
             event.preventDefault();
             const selectedDate = document.getElementById('selectedDate').value;
-            const selectedOption = document.getElementById('my-select').value;
+            const selectedOption = /* document.getElementById('my-select').value */document.getElementById('customer').value;
             const selectedPlatform = document.getElementById('platform').value;
             const selectedPhoneNumber = document.getElementById("phone").value;
             if (!selectedOption) {
