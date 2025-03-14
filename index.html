@@ -256,12 +256,48 @@
                 });
                 const json = await response.json();
                 if (response.ok) {
-                    window.location.href = "registered.html";
+                    Swal.fire({
+                        title: 'Registrado!',
+                        text: 'Registrado correctamente.',
+                        icon: 'success',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        showCloseButton: false,
+                        confirmButtonText: 'Continuar'
+                    }).then((result) => {
+                        if (result?.isConfirmed) {
+                            window.location.href = "registered.html";
+                        }
+                    });
                 } else {
-                    window.location.href = "error.html";
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Error al registrar.',
+                        icon: 'error',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        showCloseButton: false,
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result?.isConfirmed) {
+                            window.location.href = "error.html";
+                        }
+                    });
                 }
             } catch (error) {
-                window.location.href = "error.html";
+                Swal.fire({
+                        title: 'Error!',
+                        text: 'Error al registrar.',
+                        icon: 'error',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        showCloseButton: false,
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        if (result?.isConfirmed) {
+                            window.location.href = "error.html";
+                        }
+                    });
             }
         });
     </script>
